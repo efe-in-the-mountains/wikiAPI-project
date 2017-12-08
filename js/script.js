@@ -4,7 +4,8 @@ $(document).ready(function () {
   var $searchQuery = $('#searchInput');
   var pages = "";
 
-
+  $('[data-toggle="popover"]').popover();
+  
   searchBtn.addEventListener("click", function (e) {
     e.preventDefault();
     searchApi();
@@ -34,7 +35,7 @@ $(document).ready(function () {
       success: function (data) {
         console.dir(data);
         var pages = data.query.pages;
-        displayPages();
+        displayPages(pages);
       }
     });
 
@@ -47,13 +48,13 @@ $(document).ready(function () {
         var extract = value.extract;
         var url = "https://en.wikipedia.org/?curid=" + pageid;
 
-        html += "<li class='card-body d-flex flex-row align-items-center'>";
+        html += "<li class='my-2 card-body d-flex flex-column justify-content-center align-items-center border rounded'>";
         html += "<h3 class='card-title'>" + title + "</h3>";
         html += "<p class='card-text'>" + extract + "</p>";
-        html += "<a class='btn btn-link' href='" + url + "' target='_blank'>" + title + "</a>";
+        html += "<a class='btn btn-link' href='" + url + "' target='_blank'>Read more...</a>";
         html += "</li>";
       });
-      $('#resultsBox').html(html);
+      $("#resultsBox").html(html);
     }
   }
 });
