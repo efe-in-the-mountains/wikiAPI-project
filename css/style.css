@@ -3,10 +3,10 @@ html {
 }
 
 body {
-    background-color: #6B3000;
     margin: 0;
 }
 
 li {
     background-color: white;
+    box-shadow: 0.25rem 0.25rem 1rem black;
 }
